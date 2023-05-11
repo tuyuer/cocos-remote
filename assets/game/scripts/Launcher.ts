@@ -13,14 +13,22 @@ export default class Launcher extends cc.Component {
     text: string = 'hello';
 
     start () {
+        
         // cc.assetManager.loadBundle("testFeature", (err, bundle) => {
         //     const clazz = ExtensionLoader.createClass("TestFeatureClass", this) as TestFeatureClass;
         //     clazz.dosomething();
         // });
 
-        cc.assetManager.loadBundle("testFeature", (err, bundle) => {
+
+        console.log("Launcher start");
+        cc.assetManager.loadBundle("http://localhost:8080/testFeature", (err, bundle) => {
             if(err){
                 console.log(err);
+            }
+            else{
+                console.log("bundle loaded");
+                const clazz = ExtensionLoader.createClass("TestFeatureClass", this) as TestFeatureClass;
+                clazz.dosomething();
             }
         });
     }
