@@ -13,13 +13,14 @@ export default class Launcher extends cc.Component {
     text: string = 'hello';
 
     start () {
-        
+        // 小游戏分包处理
         // cc.assetManager.loadBundle("testFeature", (err, bundle) => {
         //     const clazz = ExtensionLoader.createClass("TestFeatureClass", this) as TestFeatureClass;
         //     clazz.dosomething();
         // });
 
 
+        //IOS远程包处理
         console.log("Launcher start");
         cc.assetManager.loadBundle("http://localhost:8080/testFeature", (err, bundle) => {
             if(err){
